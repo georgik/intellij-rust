@@ -10,7 +10,8 @@ enum class RustChannel(val index: Int, val channel: String?) {
     STABLE(1, "stable"),
     BETA(2, "beta"),
     NIGHTLY(3, "nightly"),
-    DEV(4, "dev");
+    DEV(4, "dev"),
+    ESP(5, "esp");
 
     override fun toString(): String = channel ?: "[default]"
 
@@ -23,6 +24,7 @@ enum class RustChannel(val index: Int, val channel: String?) {
             releaseSuffix.startsWith("beta") -> BETA
             releaseSuffix.startsWith("nightly") -> NIGHTLY
             releaseSuffix.startsWith("dev") -> DEV
+            releaseSuffix.startsWith("esp") -> ESP
             else -> DEFAULT
         }
     }
